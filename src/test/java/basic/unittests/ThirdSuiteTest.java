@@ -1,20 +1,24 @@
 package basic.unittests;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class ThirdSuiteTest {
+    @Disabled
     @Test
-    public void thirdTest1() {
+    public void skippedTest1() {
         System.out.println("thirdTest1 successful!");
     }
 
     @Test
-    public void thirdTest2() throws Exception {
-        System.out.println("thirdTest2 successful!");
+    public void failedTest2() throws Exception {
+        fail("Forcing a test failure");
     }
 
     @Test
-    public void thirdTest3() {
-        System.out.println("thirdTest3 successful!");
+    public void errorTest3() throws Exception {
+        throw new Exception("Throwing an error");
     }
 }
